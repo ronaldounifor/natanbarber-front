@@ -12,7 +12,7 @@
 <ul id="listaClientes"></ul>
 
 <script>
-    fetch('https://natanbarber-production.up.railway.app/clientes')
+    fetch('https://natanbarber-production.up.railway.app/clientes', { mode: 'no-cors' })
         .then(response => response.json())
         .then(data => {
             const listaClientes = document.getElementById('listaClientes');
@@ -28,3 +28,15 @@
 
 </body>
 </html>
+<!--
+<script>
+    // Fazendo uma requisição HTTP para obter a lista de clientes
+    fetch('https://natanbarber-production.up.railway.app/clientes', { mode: 'no-cors' })
+        .then(response => response.text()) // Converte a resposta para texto
+        .then(data => {
+            // Exibe a resposta como texto
+            document.getElementById('listaClientes').innerHTML = data;
+        })
+        .catch(error => console.error('Erro ao obter a lista de clientes:', error));
+</script>
+-->
