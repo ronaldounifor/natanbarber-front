@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Clientes</title>
+    <title>NATAN'S BARBER SHOP</title>
 </head>
 <body>
 
-<h1>Lista de Clientes</h1>
+<h1>Seja Bem-Vindo(a)</h1>
 
-<ul>
-    <li>Cliente 1</li>
-    <li>Cliente 2</li>
-    <li>Cliente 3</li>
-    <li>Cliente 4</li>
-    <li>Cliente 5</li>
-</ul>
+<ul id="listaClientes"></ul>
+
+<script>
+    fetch('https://natanbarber-production.up.railway.app/clientes')
+        .then(response => response.json())
+        .then(data => {
+            const listaClientes = document.getElementById('listaClientes');
+            listaClientes.innerHTML = '';
+            data.forEach(cliente => {
+                const li = document.createElement('li');
+                li.textContent = cliente.nome;
+                listaClientes.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Erro ao obter a lista de clientes:', error));
+</script>
 
 </body>
 </html>
