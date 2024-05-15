@@ -51,7 +51,7 @@
             listaClientes.innerHTML = '';
             data.forEach(cliente => {
                 const li = document.createElement('li');
-                li.textContent = cliente.nome;
+                li.textContent = cliente.nome + '('+cliente.cpf+'): '+cliente.telefone;
                 listaClientes.appendChild(li);
             });
         } else {
