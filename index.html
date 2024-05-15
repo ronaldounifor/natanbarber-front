@@ -12,19 +12,6 @@
 <ul id="listaClientes"></ul>
 <script>
     fetch('https://natanbarber-production.up.railway.app/clientes', { mode: 'no-cors' })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
-            document.getElementById('listaClientes').innerHTML = data;
-        })
-        .catch(error => console.error('Erro ao obter a lista de clientes:', error));
-</script>
-
-</body>
-</html>
-<!--
-<script>
-    fetch('https://natanbarber-production.up.railway.app/clientes', { mode: 'no-cors' })
         .then(response => response.json())
         .then(data => {
             const listaClientes = document.getElementById('listaClientes');
@@ -37,4 +24,6 @@
         })
         .catch(error => console.error('Erro ao obter a lista de clientes:', error));
 </script>
--->
+
+</body>
+</html>
