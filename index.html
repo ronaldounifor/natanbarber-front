@@ -47,7 +47,13 @@
 
     fetchClientes().then(data => {
         if (data) {
-            console.log('Lista de clientes:', data);
+            const listaClientes = document.getElementById('listaClientes');
+            listaClientes.innerHTML = '';
+            data.forEach(cliente => {
+                const li = document.createElement('li');
+                li.textContent = cliente.nome;
+                listaClientes.appendChild(li);
+            });
         } else {
             console.log('Não foi possível obter a lista de clientes');
         }
